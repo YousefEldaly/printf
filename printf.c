@@ -1,20 +1,19 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-<<<<<<< HEAD
-=======
 
->>>>>>> fab77769c9db3aeff66a2350d9ab8385c81ef7b4
+
 /**
- * print_c - handle c case after % in _printf
+ * print_c -  handle c case after % in _printf
  * @ap: argument pointer
+ * Return : 1
  */
 int print_c(va_list ap)
 {
-	 char c = va_arg(ap, int);
+	char c = va_arg(ap, int);
 
-	 putchar(c);
-	 return (1);
+	putchar(c);
+	return (1);
 }
 
 /**
@@ -32,6 +31,11 @@ int print_s(va_list ap)
 		putchar(*str);
 	return (counter);
 }
+/**
+ * print_mod - prints '%' to handle '%' case in _printf
+ * @ap: just to match the standard of all format handling functions
+ * Return: 1
+ */
 
 int print_mod(va_list ap __attribute__((unused)))
 {
