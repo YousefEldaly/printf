@@ -62,7 +62,8 @@ int _printf(const char *format, ...)
 				print_c(ap);
 				counter += 1;
 			}
-				counter += print_s(ap);
+			else if (*format == 's')
+			{
 				counter += print_s(ap);
 			}
 			else if (*format == '%')
