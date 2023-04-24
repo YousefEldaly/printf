@@ -6,7 +6,7 @@
 /**
  * print_c -  handle c case after % in _printf
  * @ap: argument pointer
- * Return : 1
+ * Return: 1
  */
 int print_c(va_list ap)
 {
