@@ -8,6 +8,7 @@ int print_c(va_list ap);
 int print_s(va_list ap);
 int print_mod(va_list ap);
 int print_num(va_list ap);
+int print_bin(va_list ap);
 
 typedef struct ident_format
 {

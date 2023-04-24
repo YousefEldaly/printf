@@ -17,7 +17,8 @@ int _printf(const char *format, ...)
 	int i, counter = 0;
 
 	format_t formats[] = {
-		{ 'c', print_c }, { 's', print_s }, { '%', print_mod }, {'d', print_num}, {'i', print_num}, { 0, NULL }
+		{ 'c', print_c }, { 's', print_s }, { '%', print_mod }, {'d', print_num},
+		{'i', print_num}, {'b', print_bin}, { 0, NULL }
 	};
 	if (format == NULL)
 	{
