@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdarg.h>
-
+#include "main.h"
 /**
  * print_c - handle c case after % in _printf
  * @ap: argument pointer
  */
-void print_c(va_list ap)
+int print_c(va_list ap)
 {
 	 char c = va_arg(ap, int);
 
 	 putchar(c);
+	 return (1);
 }
 
 /**
@@ -28,6 +29,12 @@ int print_s(va_list ap)
 	return (counter);
 }
 
+int print_mod(va_list ap __attribute__((unused)))
+{
+	putchar('%');
+	return (1);
+}
+
 /**
  * _printf - prints based on format
  * @format: identifier to look for
@@ -38,8 +45,11 @@ int print_s(va_list ap)
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int counter = 0;
+	int i, counter = 0;
 
+	format_t formats[] = {
+		{ 'c', print_c }, { 's', print_s }, { '%', print_mod }, { 0, NULL }
+	};
 	if (format == NULL)
 	{
 		return (-1);
@@ -56,22 +66,14 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			if (*format == 'c')
+			for (i = 0; formats[i].first_case; i++)
 			{
-				print_c(ap);
-				counter += 1;
-			}
-			else if (*format == 's')
-			{
-				counter += print_s(ap);
-			}
-			else if (*format == '%')
-			{
-				putchar('%');
+				if (formats[i].first_case == *format)
+					counter += formats[i].func(ap);
 			}
 		}
 	}
 
 	va_end(ap);
-	return (0);
+	return (counter);
 }
