@@ -42,7 +42,6 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
-		va_end(ap);
 		return (-1);
 	}
 	va_start(ap, format);
