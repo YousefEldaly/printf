@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
+<<<<<<< HEAD
+=======
+
+>>>>>>> fab77769c9db3aeff66a2350d9ab8385c81ef7b4
 /**
  * print_c - handle c case after % in _printf
  * @ap: argument pointer
