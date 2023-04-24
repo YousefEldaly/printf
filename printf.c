@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include "main.h"
 
 /**
  * print_c - handle c case after % in _printf
